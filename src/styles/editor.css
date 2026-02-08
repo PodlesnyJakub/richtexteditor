@@ -1,0 +1,263 @@
+/* Outer wrapper */
+.rte-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+}
+
+/* Scrollable editor area with gray background */
+.rte-editor-area {
+  flex: 1;
+  overflow-y: auto;
+  background: #e8e8e8;
+  padding: 40px 0;
+}
+
+/* White paper — centered with auto margins, not flex */
+.rte-paper {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  position: relative;
+  min-height: 1123px; /* fallback; pagination plugin sets this dynamically */
+  margin: 0 auto;
+}
+
+/* ProseMirror editor styles */
+.rte-paper .tiptap {
+  outline: none;
+  min-height: 200px;
+  line-height: 1.6;
+  color: #1a1a1a;
+  font-size: 14px;
+  background: #fff;
+}
+
+.rte-paper .tiptap p {
+  margin: 0 0 0.5em;
+}
+
+.rte-paper .tiptap h1 {
+  font-size: 2em;
+  margin: 0.67em 0 0.33em;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.rte-paper .tiptap h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0 0.33em;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.rte-paper .tiptap h3 {
+  font-size: 1.17em;
+  margin: 1em 0 0.33em;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.rte-paper .tiptap h4 {
+  font-size: 1em;
+  margin: 1.33em 0 0.33em;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.rte-paper .tiptap blockquote {
+  border-left: 3px solid #d0d0d0;
+  padding-left: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  color: #555;
+}
+
+.rte-paper .tiptap pre {
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding: 0.75em 1em;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.875em;
+  overflow-x: auto;
+}
+
+.rte-paper .tiptap code {
+  background: #f0f0f0;
+  border-radius: 3px;
+  padding: 0.15em 0.3em;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.875em;
+}
+
+.rte-paper .tiptap pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.rte-paper .tiptap ul,
+.rte-paper .tiptap ol {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+}
+
+.rte-paper .tiptap li {
+  margin: 0.25em 0;
+}
+
+.rte-paper .tiptap hr {
+  border: none;
+  border-top: 1px solid #d0d0d0;
+  margin: 1em 0;
+}
+
+.rte-paper .tiptap a {
+  color: #1a73e8;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.rte-paper .tiptap img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.5em 0;
+}
+
+/* Table styles */
+.rte-paper .tiptap table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.5em 0;
+  table-layout: fixed;
+  overflow: hidden;
+}
+
+.rte-paper .tiptap td,
+.rte-paper .tiptap th {
+  border: 1px solid #d0d0d0;
+  padding: 6px 10px;
+  vertical-align: top;
+  position: relative;
+  min-width: 50px;
+}
+
+.rte-paper .tiptap th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+/* Selected cell */
+.rte-paper .tiptap .selectedCell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(200, 200, 255, 0.4);
+  pointer-events: none;
+}
+
+/* Table column resize handle */
+.rte-paper .tiptap .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #adf;
+  cursor: col-resize;
+  z-index: 20;
+}
+
+/* Placeholder */
+.rte-paper .tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #adb5bd;
+  pointer-events: none;
+  height: 0;
+}
+
+/* Image resize handles */
+.rte-image-resize {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.rte-image-resize__handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #1a56db;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 10;
+}
+
+.rte-image-resize:hover .rte-image-resize__handle,
+.ProseMirror-selectednode .rte-image-resize__handle {
+  opacity: 1;
+}
+
+.rte-image-resize__handle--nw {
+  top: -5px;
+  left: -5px;
+  cursor: nw-resize;
+}
+
+.rte-image-resize__handle--ne {
+  top: -5px;
+  right: -5px;
+  cursor: ne-resize;
+}
+
+.rte-image-resize__handle--sw {
+  bottom: -5px;
+  left: -5px;
+  cursor: sw-resize;
+}
+
+.rte-image-resize__handle--se {
+  bottom: -5px;
+  right: -5px;
+  cursor: se-resize;
+}
+
+/* Drag handle */
+.rte-drag-handle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: grab;
+  color: #b0b0b0;
+  background: transparent;
+  z-index: 30;
+  transition: color 0.15s, background 0.15s;
+  user-select: none;
+}
+
+.rte-drag-handle:hover {
+  color: #555;
+  background: #f0f0f0;
+}
+
+.rte-drag-handle:active {
+  cursor: grabbing;
+  color: #333;
+  background: #e0e0e0;
+}
+
+/* Highlight the block being dragged over */
+.ProseMirror-selectednode {
+  outline: 2px solid #a4c2f4;
+  outline-offset: 2px;
+  border-radius: 2px;
+}

@@ -1,0 +1,58 @@
+/* Page break decoration — spans full paper width */
+.rte-page-break {
+  position: relative;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* White bottom/top margins simulate the page margin areas */
+.rte-page-break__bottom-margin {
+  background: #fff;
+}
+
+.rte-page-break__top-margin {
+  background: #fff;
+}
+
+/*
+ * Page edges — match the .rte-paper box-shadow so every page
+ * looks like an individual sheet of paper.
+ * bottom edge: shadow falls downward into the gap
+ * top edge:    shadow falls upward into the gap
+ */
+.rte-page-break__edge-bottom {
+  position: relative;
+  z-index: 2;
+  height: 0;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.rte-page-break__edge-top {
+  position: relative;
+  z-index: 2;
+  height: 0;
+  box-shadow:
+    0 -1px 3px rgba(0, 0, 0, 0.12),
+    0 -1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/* Gray gap between pages */
+.rte-page-break__gap {
+  background: #e8e8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Page number label centered in the gap */
+.rte-page-break__page-number {
+  font-size: 12px;
+  color: #888;
+  padding: 2px 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  white-space: nowrap;
+}

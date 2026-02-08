@@ -1,0 +1,252 @@
+/* Toolbar container */
+.rte-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 10px;
+  background: #fff;
+  border-bottom: 1px solid #d0d0d0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.rte-toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 0 4px;
+  border-right: 1px solid #e4e4e4;
+}
+
+.rte-toolbar-group:last-child {
+  border-right: none;
+}
+
+/* Toolbar button */
+.rte-toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #444;
+  position: relative;
+  padding: 0;
+}
+
+.rte-toolbar-btn:hover:not(:disabled) {
+  background: #f0f0f0;
+  color: #111;
+}
+
+.rte-toolbar-btn--active {
+  background: #e0e7ff;
+  color: #1a56db;
+}
+
+.rte-toolbar-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Toolbar select */
+.rte-toolbar-select {
+  height: 32px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 13px;
+  padding: 0 6px;
+  cursor: pointer;
+  color: #444;
+  outline: none;
+}
+
+.rte-toolbar-select:hover {
+  border-color: #a0a0a0;
+}
+
+.rte-toolbar-select:focus {
+  border-color: #1a56db;
+}
+
+/* Color picker */
+.rte-color-picker {
+  position: relative;
+  display: inline-flex;
+}
+
+.rte-color-indicator {
+  position: absolute;
+  bottom: 3px;
+  left: 6px;
+  right: 6px;
+  height: 3px;
+  border-radius: 1px;
+}
+
+.rte-color-popover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  background: #fff;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  margin-top: 4px;
+}
+
+.rte-color-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 24px);
+  gap: 3px;
+}
+
+.rte-color-swatch {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.rte-color-swatch:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.rte-color-clear {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 4px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #666;
+}
+
+.rte-color-clear:hover {
+  background: #e8e8e8;
+}
+
+/* Dialog overlay */
+.rte-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.rte-dialog {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  min-width: 360px;
+  max-width: 500px;
+}
+
+.rte-dialog-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #1a1a1a;
+}
+
+.rte-dialog-input {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.rte-dialog-input:focus {
+  border-color: #1a56db;
+  box-shadow: 0 0 0 2px rgba(26, 86, 219, 0.2);
+}
+
+.rte-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.rte-dialog-btn {
+  padding: 6px 16px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  color: #444;
+}
+
+.rte-dialog-btn:hover {
+  background: #f5f5f5;
+}
+
+.rte-dialog-btn--primary {
+  background: #1a56db;
+  color: #fff;
+  border-color: #1a56db;
+}
+
+.rte-dialog-btn--primary:hover {
+  background: #1545b8;
+}
+
+.rte-dialog-btn--primary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.rte-dialog-btn--danger {
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.rte-dialog-btn--danger:hover {
+  background: #fef2f2;
+}
+
+.rte-dialog-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.rte-dialog-tab {
+  padding: 6px 14px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  color: #666;
+}
+
+.rte-dialog-tab--active {
+  background: #e0e7ff;
+  color: #1a56db;
+  border-color: #1a56db;
+}

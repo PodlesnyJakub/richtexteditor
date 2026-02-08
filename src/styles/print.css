@@ -1,0 +1,74 @@
+@page {
+  size: A4;
+  margin: 1in;
+}
+
+@media print {
+  /* Hide toolbar and UI chrome */
+  .rte-toolbar,
+  .rte-page-break,
+  .rte-image-resize__handle {
+    display: none !important;
+  }
+
+  /* Remove gray background */
+  .rte-editor-area {
+    background: none !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Remove paper shadow */
+  .rte-paper {
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-height: auto !important;
+  }
+
+  /* Let the browser handle page breaks */
+  .rte-paper .tiptap {
+    font-size: 12pt;
+  }
+
+  /* Avoid breaking inside these elements */
+  .rte-paper .tiptap h1,
+  .rte-paper .tiptap h2,
+  .rte-paper .tiptap h3,
+  .rte-paper .tiptap h4 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .rte-paper .tiptap img,
+  .rte-paper .tiptap table,
+  .rte-paper .tiptap pre {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Hide preview page wrappers */
+  .rte-preview {
+    background: none !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  .rte-preview__page {
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-height: auto !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .rte-preview__page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .rte-preview__page-number {
+    display: none !important;
+  }
+}
